@@ -14,11 +14,6 @@ I'll follow a hybrid approach.
 
 ## 4 Degrees of Data Storage Systems
 
-1. Subsystems or layers
-2. Communications
-2. Data structures
-4. Request Processing
-
 {{<mermaid>}}
 %%{init:{"theme":"neo"}}%%
 mindmap
