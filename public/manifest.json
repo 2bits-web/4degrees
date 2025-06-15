@@ -1,6 +1,6 @@
 {
-  "name": "My New Hugo Site",
-  "short_name": "My New Hugo Site",
+  "name": "Notes on Data Storage Systems",
+  "short_name": "Notes on Data Storage Systems",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

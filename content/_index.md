@@ -1,5 +1,5 @@
 ---
-title: About
+title: Intro
 type: docs
 mermaid_theme: neo
 ---
