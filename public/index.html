@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+	<meta name="generator" content="Hugo 0.147.8"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="In my opinion, we can view data storage systems through many lenses.
+We can explore it by analyzing the underlying data structures and their
+interactions to store, manage and retrieve data and metadata.
+We can also explore at as a I/O stack consisting of different sub-systems or
+layers and the interfaces through which these sub-systems interact.
+We can also take a hybrid approach.
+I&rsquo;ll follow a hybrid approach.
+
+  4 Degrees of Data Storage Systems
+  #
+
+
+Subsystems or layers
+Communications
+Data structures
+Request Processing
+
+
+
+
+
+  
+
+
+
+
+
+%%{init:{&#34;theme&#34;:&#34;neo&#34;}}%%
+mindmap
+((Data Storage))
+  Subsystems
+  Communication
+  Data Structure
+  Request Processing
+
+
+
+  Things to remember
+  #
+
+
+We always need metadata to be manage data efficiently. Sometimes, metadata can be larger than data itself!
+The same problem can be solved in different ways. Each design choice has some trade-offs. There are multiple theorems which talks about this in the context of data storage and databases - RUM conjecture, CAP theorem. Interestingly, there are also works trying to achieve the optimal data structure design.
+Optimization efforts can focus on optimizing a layer in the storage stack(e.g., FTL design in SSD, index design for database), or streamlining the storage stack (e.g., SNIA key-value stack), or bypassing one or more layers completely (e.g., SPDK, SNIA key-value stack).
+When optimizing a layer, make it efficient without adding overheads in other layers. Look at the KV-SSD experience. The host-side storage stack was streamlined, but many jobs were now delegated to the SSD, without adding compute power. Some computational SSD designs do this delegation by adding special hardware inside the storage device. However, it is still not clear if such devices provided good end-to-end benefits.
+Similar to 4, when you are analyzing a new solution, think in terms of the whole stack. Is the problem solved by making a particular layer efficient, or by delegating to another layer? Does I/O performance improves end-to-end?
+A lot of times, the cool new feature that solves a problem is not available commercially or widely enough in most systems. So the problem it solves is still out there and needs to be solved in a different way. If you design a solution that is for the systems without this cool new feature, be extra careful to convey this information, especially when writing an academic paper. Systems people are highly sensitive about this, in my experience. I once got a review that a problem we identified regarding persistent memory devices has been solved by the introduction of eADR feature in Intel Optane, and thus the problem we identified is no longer relevant. However, I have seen a number of high-end machines using Intel Optane persistent memory devices over the years, and yet to encounter a system that supports the eADR feature. Hence, the problem we identified is still valid for most systems using Intel Optane, except for the device has been discontinued by Intel!
+Different layers in the storage stack employ their own cache. Hence, the entire stack tends to have a multi-layer caching system, which does not interact with each other directly. This can incur additional data copy and overheads. Some optimization techniques also bypass certain caches to avoid these overheads, and may use their own cache.
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/">
+  <meta property="og:site_name" content="My New Hugo Site">
+  <meta property="og:title" content="About">
+  <meta property="og:description" content="In my opinion, we can view data storage systems through many lenses. We can explore it by analyzing the underlying data structures and their interactions to store, manage and retrieve data and metadata. We can also explore at as a I/O stack consisting of different sub-systems or layers and the interfaces through which these sub-systems interact. We can also take a hybrid approach. I’ll follow a hybrid approach.
+4 Degrees of Data Storage Systems # Subsystems or layers Communications Data structures Request Processing %%{init:{&#34;theme&#34;:&#34;neo&#34;}}%% mindmap ((Data Storage)) Subsystems Communication Data Structure Request Processing Things to remember # We always need metadata to be manage data efficiently. Sometimes, metadata can be larger than data itself! The same problem can be solved in different ways. Each design choice has some trade-offs. There are multiple theorems which talks about this in the context of data storage and databases - RUM conjecture, CAP theorem. Interestingly, there are also works trying to achieve the optimal data structure design. Optimization efforts can focus on optimizing a layer in the storage stack(e.g., FTL design in SSD, index design for database), or streamlining the storage stack (e.g., SNIA key-value stack), or bypassing one or more layers completely (e.g., SPDK, SNIA key-value stack). When optimizing a layer, make it efficient without adding overheads in other layers. Look at the KV-SSD experience. The host-side storage stack was streamlined, but many jobs were now delegated to the SSD, without adding compute power. Some computational SSD designs do this delegation by adding special hardware inside the storage device. However, it is still not clear if such devices provided good end-to-end benefits. Similar to 4, when you are analyzing a new solution, think in terms of the whole stack. Is the problem solved by making a particular layer efficient, or by delegating to another layer? Does I/O performance improves end-to-end? A lot of times, the cool new feature that solves a problem is not available commercially or widely enough in most systems. So the problem it solves is still out there and needs to be solved in a different way. If you design a solution that is for the systems without this cool new feature, be extra careful to convey this information, especially when writing an academic paper. Systems people are highly sensitive about this, in my experience. I once got a review that a problem we identified regarding persistent memory devices has been solved by the introduction of eADR feature in Intel Optane, and thus the problem we identified is no longer relevant. However, I have seen a number of high-end machines using Intel Optane persistent memory devices over the years, and yet to encounter a system that supports the eADR feature. Hence, the problem we identified is still valid for most systems using Intel Optane, except for the device has been discontinued by Intel! Different layers in the storage stack employ their own cache. Hence, the entire stack tends to have a multi-layer caching system, which does not interact with each other directly. This can incur additional data copy and overheads. Some optimization techniques also bypass certain caches to avoid these overheads, and may use their own cache.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+<title>About | My New Hugo Site</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/">
+<link rel="stylesheet" href="/book.min.d5e59cb0aa8d22a5813c62cd5e25d3d172489a369c61dc3f622ee96ae1ebb457.css" integrity="sha256-1eWcsKqNIqWBPGLNXiXT0XJImjacYdw/Yi7pauHrtFc=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.01e06485cbfd6fea743ffc3cf16bf807a385fbc0cd9e5c846259fd1d173a78e4.js" integrity="sha256-AeBkhcv9b&#43;p0P/w88Wv4B6OF&#43;8DNnlyEYln9HRc6eOQ=" crossorigin="anonymous"></script>
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="My New Hugo Site" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>My New Hugo Site</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-399b54c8a80760f61ee972e61d1fb509" class="toggle"  />
+    <label for="section-399b54c8a80760f61ee972e61d1fb509" class="flex">
+      <a role="button" class="flex-auto ">Subsystems</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-7da626060347670da050cf1657ce7113" class="toggle"  />
+    <label for="section-7da626060347670da050cf1657ce7113" class="flex">
+      <a role="button" class="flex-auto ">Communication</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d0eb31d8bdb180d7780babaf7b065948" class="toggle"  />
+    <label for="section-d0eb31d8bdb180d7780babaf7b065948" class="flex">
+      <a role="button" class="flex-auto ">Data Structures</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-dc80ce3ced2215d3942a442098a0f98f" class="toggle"  />
+    <label for="section-dc80ce3ced2215d3942a442098a0f98f" class="flex">
+      <a role="button" class="flex-auto ">Request Processing</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-24e2860ce03fcc24f5ee11bc178c53f2" class="toggle"  />
+    <label for="section-24e2860ce03fcc24f5ee11bc178c53f2" class="flex">
+      <a role="button" class="flex-auto ">Example</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>About</h3>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#4-degrees-of-data-storage-systems">4 Degrees of Data Storage Systems</a></li>
+    <li><a href="#things-to-remember">Things to remember</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><p>In my opinion, we can view data storage systems through many lenses.
+We can explore it by analyzing the underlying data structures and their
+interactions to store, manage and retrieve data and metadata.
+We can also explore at as a I/O stack consisting of different sub-systems or
+layers and the interfaces through which these sub-systems interact.
+We can also take a hybrid approach.
+I&rsquo;ll follow a hybrid approach.</p>
+<h2 id="4-degrees-of-data-storage-systems">
+  4 Degrees of Data Storage Systems
+  <a class="anchor" href="#4-degrees-of-data-storage-systems">#</a>
+</h2>
+<ol>
+<li>Subsystems or layers</li>
+<li>Communications</li>
+<li>Data structures</li>
+<li>Request Processing</li>
+</ol>
+
+
+<script src="/mermaid.min.js"></script>
+
+  <script>mermaid.initialize({
+  "flowchart": {
+    "useMaxWidth":true
+  },
+  "theme": "default"
+}
+)</script>
+
+
+
+
+<pre class="mermaid">
+%%{init:{"theme":"neo"}}%%
+mindmap
+((Data Storage))
+  Subsystems
+  Communication
+  Data Structure
+  Request Processing
+</pre>
+
+<h2 id="things-to-remember">
+  Things to remember
+  <a class="anchor" href="#things-to-remember">#</a>
+</h2>
+<ol>
+<li>We always need metadata to be manage data efficiently. Sometimes, metadata can be larger than data itself!</li>
+<li>The same problem can be solved in different ways. Each design choice has some trade-offs. There are multiple theorems which talks about this in the context of data storage and databases - RUM conjecture, CAP theorem. Interestingly, there are also works trying to achieve the optimal data structure design.</li>
+<li>Optimization efforts can focus on optimizing a layer in the storage stack(e.g., FTL design in SSD, index design for database), or streamlining the storage stack (e.g., SNIA key-value stack), or bypassing one or more layers completely (e.g., SPDK, SNIA key-value stack).</li>
+<li>When optimizing a layer, make it efficient without adding overheads in other layers. Look at the KV-SSD experience. The host-side storage stack was streamlined, but many jobs were now delegated to the SSD, without adding compute power. Some computational SSD designs do this delegation by adding special hardware inside the storage device. However, it is still not clear if such devices provided good end-to-end benefits.</li>
+<li>Similar to 4, when you are analyzing a new solution, think in terms of the whole stack. Is the problem solved by making a particular layer efficient, or by delegating to another layer? Does I/O performance improves end-to-end?</li>
+<li>A lot of times, the cool new feature that solves a problem is not available commercially or widely enough in most systems. So the problem it solves is still out there and needs to be solved in a different way. If you design a solution that is for the systems without this cool new feature, be extra careful to convey this information, especially when writing an academic paper. Systems people are highly sensitive about this, in my experience. I once got a review that a problem we identified regarding persistent memory devices has been solved by the introduction of eADR feature in Intel Optane, and thus the problem we identified is no longer relevant. However, I have seen a number of high-end machines using Intel Optane persistent memory devices over the years, and yet to encounter a system that supports the eADR feature. Hence, the problem we identified is still valid for most systems using Intel Optane, except for the device has been discontinued by Intel!</li>
+<li>Different layers in the storage stack employ their own cache. Hence, the entire stack tends to have a multi-layer caching system, which does not interact with each other directly. This can incur additional data copy and overheads. Some optimization techniques also bypass certain caches to avoid these overheads, and may use their own cache.</li>
+</ol>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#4-degrees-of-data-storage-systems">4 Degrees of Data Storage Systems</a></li>
+    <li><a href="#things-to-remember">Things to remember</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
