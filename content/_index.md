@@ -18,11 +18,13 @@ I'll follow a hybrid approach.
 %%{init:{"theme":"neo"}}%%
 mindmap
 ((Data Storage))
-  Subsystems
+  Components
   Communication
   Data Structure
   Request Processing
 {{</mermaid>}}
+
+Don't discard the above categorization because you don't see performance anywhere. In my opinion, performance is a cross-cutting issue present in each degree separately and across the whole system.
 
 
 ## Things to remember
