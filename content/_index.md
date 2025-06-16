@@ -1,7 +1,8 @@
 ---
 title: Intro
 type: docs
-mermaid_theme: neo
+mermaidInitialize: '{ "theme": "neo" }'
+mermaidZoom: true
 ---
 
 In my opinion, we can view data storage systems through many lenses.
@@ -15,7 +16,6 @@ I'll follow a hybrid approach.
 ## 4 Degrees of Data Storage Systems
 
 {{<mermaid>}}
-%%{init:{"theme":"neo"}}%%
 mindmap
 ((Data Storage))
   Components
@@ -24,7 +24,7 @@ mindmap
   Request Processing
 {{</mermaid>}}
 
-Don't discard the above categorization because you don't see performance anywhere. In my opinion, performance is a cross-cutting issue present in each degree separately and across the whole system.
+Don't discard the above categorization because you don't see performance anywhere. In my opinion, performance is a cross-cutting issue present in each degree separately and across the whole system. In addition, the above 4 degrees can also be utilized to explain subsystems or components of data storage systems.
 
 
 ## Things to remember

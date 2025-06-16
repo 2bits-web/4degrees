@@ -5,3 +5,4 @@ theme = 'hugo-book'
 
 [params]
   mermaidInitialize = '{ "theme": "neo" }'
+  mermaidZoom = true
