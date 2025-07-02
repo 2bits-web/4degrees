@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  Chapter 1: Understanding Workloads
+  #
+
+
+  Key-Value Workloads
+  #
+
+
+  Block-based Workloads
+  #
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/data_storage/casestudy/data/">
+  <meta property="og:site_name" content="Notes on Data Storage Systems">
+  <meta property="og:title" content="Understanding Workloads">
+  <meta property="og:description" content="Chapter 1: Understanding Workloads # Key-Value Workloads # Block-based Workloads #">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+<title>Understanding Workloads | Notes on Data Storage Systems</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/docs/data_storage/casestudy/data/">
+<link rel="stylesheet" href="/book.min.d5e59cb0aa8d22a5813c62cd5e25d3d172489a369c61dc3f622ee96ae1ebb457.css" integrity="sha256-1eWcsKqNIqWBPGLNXiXT0XJImjacYdw/Yi7pauHrtFc=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.c3badc746b37b6a551510a4ffb2e13ee88a637f3975441b234ac9e4597c51d8e.js" integrity="sha256-w7rcdGs3tqVRUQpP&#43;y4T7oimN/OXVEGyNKyeRZfFHY4=" crossorigin="anonymous"></script>
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/docs/data_storage/casestudy/data/index.xml" title="Notes on Data Storage Systems" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Notes on Data Storage Systems</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0d13c50bdbadf4b51fe9751beac8b39f" class="toggle" checked />
+    <label for="section-0d13c50bdbadf4b51fe9751beac8b39f" class="flex">
+      <a role="button" class="flex-auto ">Case Study</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4289f2e466a7b22059744a7fe03e075f" class="toggle" checked />
+    <label for="section-4289f2e466a7b22059744a7fe03e075f" class="flex">
+      <a href="/docs/data_storage/casestudy/data/" class="flex-auto active">Understanding Workloads</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-fa1aecc4d696af7559c253198beaa572" class="toggle"  />
+    <label for="section-fa1aecc4d696af7559c253198beaa572" class="flex">
+      <a href="/docs/data_storage/casestudy/data/trace/" class="flex-auto ">Traces</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-16ab34e8a3b3e9a92e86f2d1a93cb965" class="toggle"  />
+    <label for="section-16ab34e8a3b3e9a92e86f2d1a93cb965" class="flex">
+      <a href="/docs/data_storage/casestudy/data/benchmark/" class="flex-auto ">Benchmarks</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Understanding Workloads</h3>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#key-value-workloads">Key-Value Workloads</a></li>
+    <li><a href="#block-based-workloads">Block-based Workloads</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="chapter-1-understanding-workloads">
+  Chapter 1: Understanding Workloads
+  <a class="anchor" href="#chapter-1-understanding-workloads">#</a>
+</h1>
+<h2 id="key-value-workloads">
+  Key-Value Workloads
+  <a class="anchor" href="#key-value-workloads">#</a>
+</h2>
+<h2 id="block-based-workloads">
+  Block-based Workloads
+  <a class="anchor" href="#block-based-workloads">#</a>
+</h2>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+
+
+
+
+
+
+<div class="text-center text-lg font-light">
+  <div title="hugo-book">
+    © 2025 Manoj Pravakar Saha
+  </div>
+</div>
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#key-value-workloads">Key-Value Workloads</a></li>
+    <li><a href="#block-based-workloads">Block-based Workloads</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

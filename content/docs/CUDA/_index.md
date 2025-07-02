@@ -1,5 +1,5 @@
 ---
 bookCollapseSection: true
 weight: 1
-title: "Components"
+title: "GPU Programming"
 ---

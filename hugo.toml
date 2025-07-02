@@ -1,6 +1,6 @@
 baseURL = 'https://4degrees.xyz/'
 languageCode = 'en-us'
-title = 'Notes on Data Storage Systems'
+title = '4 Degrees After ...'
 theme = 'hugo-book'
 
 [params]

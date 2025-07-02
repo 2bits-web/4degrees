@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://4degrees.xyz/docs/cuda/">
+  <meta property="og:site_name" content="4 Degrees After ...">
+  <meta property="og:title" content="GPU Programming">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+<title>GPU Programming | 4 Degrees After ...</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="https://4degrees.xyz/docs/cuda/">
+<link rel="stylesheet" href="/book.min.d5e59cb0aa8d22a5813c62cd5e25d3d172489a369c61dc3f622ee96ae1ebb457.css" integrity="sha256-1eWcsKqNIqWBPGLNXiXT0XJImjacYdw/Yi7pauHrtFc=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.af9717e6c74af6ebbf17680db41dc4ee46744df140597ac5e44236b17c0838ed.js" integrity="sha256-r5cX5sdK9uu/F2gNtB3E7kZ0TfFAWXrF5EI2sXwIOO0=" crossorigin="anonymous"></script>
+<link rel="alternate" type="application/rss+xml" href="https://4degrees.xyz/docs/cuda/index.xml" title="4 Degrees After ..." />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>4 Degrees After ...</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0fe936c5c8d77e1922da478675d56bee" class="toggle" checked />
+    <label for="section-0fe936c5c8d77e1922da478675d56bee" class="flex">
+      <a role="button" class="flex-auto active">GPU Programming</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-3398d79028ba221329b512be27aee407" class="toggle"  />
+    <label for="section-3398d79028ba221329b512be27aee407" class="flex">
+      <a href="/docs/data_storage/" class="flex-auto ">Data Storage Systems</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4aabac1cd4582d3ca188245a802dba63" class="toggle"  />
+    <label for="section-4aabac1cd4582d3ca188245a802dba63" class="flex">
+      <a href="/docs/data_storage/data/" class="flex-auto ">Understanding Workloads</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-a5818a7e161d683e29c4a24ff5a57969" class="toggle"  />
+    <label for="section-a5818a7e161d683e29c4a24ff5a57969" class="flex">
+      <a href="/docs/data_storage/data/trace/" class="flex-auto ">Traces</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c1be2fdab8b7f7c12da2cb5323a7edca" class="toggle"  />
+    <label for="section-c1be2fdab8b7f7c12da2cb5323a7edca" class="flex">
+      <a href="/docs/data_storage/data/benchmark/" class="flex-auto ">Benchmarks</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0d13c50bdbadf4b51fe9751beac8b39f" class="toggle"  />
+    <label for="section-0d13c50bdbadf4b51fe9751beac8b39f" class="flex">
+      <a role="button" class="flex-auto ">Case Study</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-89aa55dd75a0fb3ffa9e3fe1929d4ddc" class="toggle"  />
+    <label for="section-89aa55dd75a0fb3ffa9e3fe1929d4ddc" class="flex">
+      <a role="button" class="flex-auto ">Out of the Machine</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>GPU Programming</h3>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents"></nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+
+
+
+
+
+
+<div class="text-center text-lg font-light">
+  <div title="hugo-book">
+    © 2025 Manoj Pravakar Saha
+  </div>
+</div>
+      </footer>
+
+      
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents"></nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

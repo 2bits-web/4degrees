@@ -1,5 +1,5 @@
 ---
 bookCollapseSection: true
 weight: 5
-title: "Example"
+title: "Case Study"
 ---

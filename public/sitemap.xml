@@ -2,15 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://4degrees.xyz/docs/components/</loc>
+    <loc>https://4degrees.xyz/docs/cuda/</loc>
   </url><url>
-    <loc>https://4degrees.xyz/docs/data_structure/</loc>
+    <loc>https://4degrees.xyz/docs/data_storage/data/trace/</loc>
   </url><url>
-    <loc>https://4degrees.xyz/docs/communication/</loc>
+    <loc>https://4degrees.xyz/docs/data_storage/data/</loc>
   </url><url>
-    <loc>https://4degrees.xyz/docs/request_processing/</loc>
+    <loc>https://4degrees.xyz/docs/data_storage/data/benchmark/</loc>
   </url><url>
-    <loc>https://4degrees.xyz/docs/example/</loc>
+    <loc>https://4degrees.xyz/docs/data_storage/</loc>
+  </url><url>
+    <loc>https://4degrees.xyz/docs/life/</loc>
+  </url><url>
+    <loc>https://4degrees.xyz/docs/data_storage/casestudy/</loc>
   </url><url>
     <loc>https://4degrees.xyz/categories/</loc>
   </url><url>
