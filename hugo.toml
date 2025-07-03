@@ -3,6 +3,15 @@ languageCode = 'en-us'
 title = '4 Degrees After ...'
 theme = 'hugo-book'
 
+enableGitInfo = true
+
+[markup]
+[markup.goldmark.renderer]
+  unsafe = true
+
+
 [params]
   mermaidInitialize = '{ "theme": "neo" }'
   mermaidZoom = true
+
+  BookDateFormat = 'January 2, 2006'
