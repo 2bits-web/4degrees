@@ -3,22 +3,31 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
+<meta name="description" content="
+  Learning from Failures
+  #
+
+
+  Resource Sharing vs Isolation
+  #
+
+Resource isolation can improve local performance for some workloads on a system but may degrade performance for others. Instead, sharing resources can lead to good performance overall, although some workloads may not reach their optimal. It might seem unfair to the workloads which don&rsquo;t get the optimal performance from the system but it helps the system alleviate the performance penalties of other workloads running on the system. I learned it from a project I undertook during my Ph.D. We did not expect this outcome, and the project ultimately failed. However, it left a valuable lesson for me. It feels like the observation could span beyond computer system, and could be true for economy and society overall.">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://4degrees.xyz/categories/">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://4degrees.xyz/docs/life/failures/">
   <meta property="og:site_name" content="4 Degrees After ...">
-  <meta property="og:title" content="Categories">
+  <meta property="og:title" content="Learning from Failures">
+  <meta property="og:description" content="Learning from Failures # Resource Sharing vs Isolation # Resource isolation can improve local performance for some workloads on a system but may degrade performance for others. Instead, sharing resources can lead to good performance overall, although some workloads may not reach their optimal. It might seem unfair to the workloads which don’t get the optimal performance from the system but it helps the system alleviate the performance penalties of other workloads running on the system. I learned it from a project I undertook during my Ph.D. We did not expect this outcome, and the project ultimately failed. However, it left a valuable lesson for me. It feels like the observation could span beyond computer system, and could be true for economy and society overall.">
   <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="website">
-<title>Categories | 4 Degrees After ...</title>
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+<title>Learning from Failures | 4 Degrees After ...</title>
 <link rel="icon" href="/favicon.png" >
 <link rel="manifest" href="/manifest.json">
-<link rel="canonical" href="https://4degrees.xyz/categories/">
+<link rel="canonical" href="https://4degrees.xyz/docs/life/failures/">
 <link rel="stylesheet" href="/book.min.d5e59cb0aa8d22a5813c62cd5e25d3d172489a369c61dc3f622ee96ae1ebb457.css" integrity="sha256-1eWcsKqNIqWBPGLNXiXT0XJImjacYdw/Yi7pauHrtFc=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
   <script defer src="/en.search.min.5e2d46bd2c3fde93706721678be0cc04c5dc2b325075749efdc311a2a63beaf0.js" integrity="sha256-Xi1GvSw/3pNwZyFni&#43;DMBMXcKzJQdXSe/cMRoqY76vA=" crossorigin="anonymous"></script>
-<link rel="alternate" type="application/rss+xml" href="https://4degrees.xyz/categories/index.xml" title="4 Degrees After ..." />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -196,7 +205,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-89aa55dd75a0fb3ffa9e3fe1929d4ddc" class="toggle"  />
+    <input type="checkbox" id="section-89aa55dd75a0fb3ffa9e3fe1929d4ddc" class="toggle" checked />
     <label for="section-89aa55dd75a0fb3ffa9e3fe1929d4ddc" class="flex">
       <a role="button" class="flex-auto ">Out of the Machine</a>
     </label>
@@ -212,7 +221,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/life/failures/" class="">Learning from Failures</a>
+    <a href="/docs/life/failures/" class="active">Learning from Failures</a>
   
 
         </li>
@@ -258,7 +267,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <h3>Categories</h3>
+  <h3>Learning from Failures</h3>
 
   <label for="toc-control">
     
@@ -271,29 +280,17 @@ https://github.com/alex-shpak/hugo-book
   
   <aside class="hidden clearfix">
     
-  <nav>
+  
+<nav id="TableOfContents">
   <ul>
-  
-    
-    <li class="book-section-flat">
-      <span>Categories</span>
+    <li><a href="#learning-from-failures">Learning from Failures</a>
       <ul>
-      
+        <li><a href="#resource-sharing-vs-isolation">Resource Sharing vs Isolation</a></li>
       </ul>
     </li>
-    
-  
-    
-    <li class="book-section-flat">
-      <span>Tags</span>
-      <ul>
-      
-      </ul>
-    </li>
-    
-  
   </ul>
 </nav>
+
 
 
   </aside>
@@ -303,10 +300,15 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-<article class="markdown book-post">
-  <h1>Categories</h1>
-  
-  
+  <article class="markdown book-article"><h2 id="learning-from-failures">
+  Learning from Failures
+  <a class="anchor" href="#learning-from-failures">#</a>
+</h2>
+<h3 id="resource-sharing-vs-isolation">
+  Resource Sharing vs Isolation
+  <a class="anchor" href="#resource-sharing-vs-isolation">#</a>
+</h3>
+<p>Resource isolation can improve local performance for some workloads on a system but may degrade performance for others. Instead, sharing resources can lead to good performance overall, although some workloads may not reach their optimal. It might seem unfair to the workloads which don&rsquo;t get the optimal performance from the system but it helps the system alleviate the performance penalties of other workloads running on the system. I learned it from a project I undertook during my Ph.D. We did not expect this outcome, and the project ultimately failed. However, it left a valuable lesson for me. It feels like the observation could span beyond computer system, and could be true for economy and society overall.</p>
 </article>
  
       
@@ -343,6 +345,10 @@ https://github.com/alex-shpak/hugo-book
 
       
   
+  <div class="book-comments">
+
+</div>
+  
  
 
       <label for="menu-control" class="hidden book-menu-overlay"></label>
@@ -352,29 +358,17 @@ https://github.com/alex-shpak/hugo-book
     <aside class="book-toc">
       <div class="book-toc-content">
         
-  <nav>
+  
+<nav id="TableOfContents">
   <ul>
-  
-    
-    <li class="book-section-flat">
-      <span>Categories</span>
+    <li><a href="#learning-from-failures">Learning from Failures</a>
       <ul>
-      
+        <li><a href="#resource-sharing-vs-isolation">Resource Sharing vs Isolation</a></li>
       </ul>
     </li>
-    
-  
-    
-    <li class="book-section-flat">
-      <span>Tags</span>
-      <ul>
-      
-      </ul>
-    </li>
-    
-  
   </ul>
 </nav>
+
 
  
       </div>
